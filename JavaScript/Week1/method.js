@@ -140,3 +140,4 @@ let boy = {
 
 boy.sayThis();
 // window 출력
+

@@ -8,6 +8,7 @@ const superman = {
 접근;
 superman.name; // 'clark'
 superman["age"]; // 33
+// 첫 번째 방법을 많이 쓰는 것으로
 
 추가;
 superman.gender = "male";

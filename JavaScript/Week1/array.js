@@ -93,3 +93,4 @@ for (let day of days) {
   console.log(day);
 }
 // "sun" "mon" "tue" "wed" "thu" 출력
+// day는 배열의 요소이기 때문에 아무거나 써도 됨
