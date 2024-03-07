@@ -5,17 +5,31 @@ import "./expenseform.css";
 import { MdSend } from "react-icons/md";
 
 // 예외 처리할 것
-// 리스트 아이템 없을 경우 처리
+// 리스트 아이템 없을 경우 처리하기
+// 토스트로 경고 처리하기
 
-export default function ExpenseForm(props) {
+export default function ExpenseForm({
+  expenses,
+  setExpenses,
+  addItem,
+  toast,
+  setToast,
+  setMessage,
+}) {
   const [id, setId] = useState(4);
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
 
   const handleAdd = () => {
     const item = { id, name, amount };
+    if (item.name.trim() === "") {
+      return setToast(true), setMessage("지출 항목을 입력해주세요.");
+    } else if (item.amount === "") {
+      return setToast(true), setMessage("값을 입력해주세요.");
+    }
+
     setId(id + 1);
-    props.addItem(item);
+    addItem(item);
     setName("");
     setAmount("");
   };
@@ -24,7 +38,7 @@ export default function ExpenseForm(props) {
     if (e.target.name === "name") {
       setName(e.target.value);
     } else if (e.target.name === "amount") {
-      setAmount(e.target.value);
+      setAmount(e.target.valueAsNumber);
     }
   };
 

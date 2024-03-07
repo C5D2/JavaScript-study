@@ -3,7 +3,7 @@ import { LiaEdit } from "react-icons/lia";
 import { MdDeleteForever } from "react-icons/md";
 import "./expenseitem.css";
 
-export default function ExpenseItem({ expenses }) {
+export default function ExpenseItem({ expenses, deleteItem }) {
   return (
     <>
       {expenses.map((item) => (
@@ -17,7 +17,7 @@ export default function ExpenseItem({ expenses }) {
               {/* edit-icons */}
               <LiaEdit />
             </button>
-            <button className="clear-btn">
+            <button className="clear-btn" onClick={() => deleteItem(item.id)}>
               {/* delete-icons */}
               <MdDeleteForever />
             </button>
