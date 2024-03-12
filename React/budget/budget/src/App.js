@@ -11,6 +11,7 @@ function App() {
     { id: 2, name: "교통비", amount: 400 },
     { id: 3, name: "식비", amount: 1200 },
   ]);
+
   const [toast, setToast] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -33,15 +34,14 @@ function App() {
     <main className="main-container">
       <h1>내 소비목록 </h1>
       <div style={{ width: "100%", backgroundColor: "white", padding: "1rem" }}>
+        {toast && <Toast setToast={setToast} text={message} position="top" />}
         <Expenseform
           expenses={expenses}
           setExpenses={setExpenses}
           addItem={addItem}
-          toast={toast}
           setToast={setToast}
           setMessage={setMessage}
         />
-        {toast && <Toast setToast={setToast} text={message} position="top" />}
       </div>
       <div style={{ width: "100%", backgroundColor: "white", padding: "1rem" }}>
         <ExpenseList
@@ -50,6 +50,8 @@ function App() {
           addItem={addItem}
           deleteAllItem={deleteAllItem}
           deleteItem={deleteItem}
+          setToast={setToast}
+          setMessage={setMessage}
         />
       </div>
       <div
