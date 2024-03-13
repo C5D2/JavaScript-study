@@ -26,6 +26,8 @@ function App() {
 
   function deleteAllItem() {
     setExpenses([]);
+    setToast(true);
+    setMessage("모든 목록이 삭제되었습니다.");
   }
 
   const totalAmount = expenses.reduce((sum, item) => sum + item.amount, 0);
@@ -50,8 +52,6 @@ function App() {
           addItem={addItem}
           deleteAllItem={deleteAllItem}
           deleteItem={deleteItem}
-          setToast={setToast}
-          setMessage={setMessage}
         />
       </div>
       <div
