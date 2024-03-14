@@ -4,11 +4,11 @@ import "./expenseList.css";
 import { MdDelete } from "react-icons/md";
 import ExpenseItem from "./expenseItem";
 
-export default function ExpenseList({ expenses, deleteItem, deleteAllItem }) {
+export default function ExpenseList({ itemList, deleteItem, deleteAllItem }) {
   return (
-    <div key={expenses.id}>
+    <div key={itemList.id}>
       <ul className="list">
-        <ExpenseItem expenses={expenses} deleteItem={deleteItem} />
+        <ExpenseItem itemList={itemList} deleteItem={deleteItem} />
       </ul>
       <button className="btn" onClick={() => deleteAllItem()}>
         목록 지우기 <MdDelete className="btn-icon" />

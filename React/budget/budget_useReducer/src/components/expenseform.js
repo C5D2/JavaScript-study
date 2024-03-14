@@ -8,39 +8,7 @@ import { MdSend } from "react-icons/md";
 // 리스트 아이템 없을 경우 처리하기
 // 토스트로 경고 처리하기
 
-export default function ExpenseForm({
-  expenses,
-  setExpenses,
-  addItem,
-  toast,
-  setToast,
-  setMessage,
-}) {
-  const [name, setName] = useState("");
-  const [amount, setAmount] = useState("");
-
-  const handleAdd = () => {
-    const item = { id, name, amount };
-    if (item.name.trim() === "") {
-      return setToast(true), setMessage("지출 항목을 입력해주세요.");
-    } else if (item.amount === "") {
-      return setToast(true), setMessage("값을 입력해주세요.");
-    }
-
-    setId(id + 1);
-    addItem(item);
-    setName("");
-    setAmount("");
-  };
-
-  const handleChange = (e) => {
-    if (e.target.name === "name") {
-      setName(e.target.value);
-    } else if (e.target.name === "amount") {
-      setAmount(e.target.valueAsNumber);
-    }
-  };
-
+export default function ExpenseForm({ name, amount, handleChange, handleAdd }) {
   return (
     <form>
       <div className="form-center">
