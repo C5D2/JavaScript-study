@@ -40,22 +40,23 @@ function App() {
     }
   };
 
-  const [itemList, itemListDispatch] = useReducer(
-    expenseReducer,
-    defaultItemList
-  );
+  const [newItemList, newItemListDispatch] = useReducer(expenseReducer, {
+    itemList: defaultItemList,
+  });
+
+  const { itemList } = newItemList;
 
   function addItem(item) {
-    itemListDispatch({ type: "ADD", item: { ...item, id: nextId } });
+    newItemListDispatch({ type: "ADD", item: { ...item, id: nextId } });
     setNextId(nextId + 1);
   }
 
   function deleteItem(item) {
-    itemListDispatch({ type: "DELETE", id: item.id });
+    newItemListDispatch({ type: "DELETE", id: item.id });
   }
 
   function deleteAllItem() {
-    itemListDispatch({ type: "DELETEALL" });
+    newItemListDispatch({ type: "DELETEALL" });
     setToast(true);
     setMessage("모든 목록이 삭제되었습니다.");
   }
