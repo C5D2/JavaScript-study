@@ -6,25 +6,24 @@ import "./expenseitem.css";
 export default function ExpenseItem({ itemList, deleteItem }) {
   return (
     <>
-      {itemList &&
-        itemList.map((item) => (
-          <li key={item.id} className="item">
-            <div className="info">
-              <span className="amount">{item.name}</span>
-              <span className="expense">{item.amount}</span>
-            </div>
-            <div>
-              <button className="edit-btn">
-                {/* edit-icons */}
-                <LiaEdit />
-              </button>
-              <button className="clear-btn" onClick={() => deleteItem(item.id)}>
-                {/* delete-icons */}
-                <MdDeleteForever />
-              </button>
-            </div>
-          </li>
-        ))}
+      {itemList.map((item) => (
+        <li key={item.id} className="item">
+          <div className="info">
+            <span className="amount">{item.name}</span>
+            <span className="expense">{item.amount}</span>
+          </div>
+          <div>
+            <button className="edit-btn">
+              {/* edit-icons */}
+              <LiaEdit />
+            </button>
+            <button className="clear-btn" onClick={() => deleteItem(item.id)}>
+              {/* delete-icons */}
+              <MdDeleteForever />
+            </button>
+          </div>
+        </li>
+      ))}
     </>
   );
 }

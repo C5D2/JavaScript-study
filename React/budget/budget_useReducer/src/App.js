@@ -51,8 +51,8 @@ function App() {
     setNextId(nextId + 1);
   }
 
-  function deleteItem(item) {
-    newItemListDispatch({ type: "DELETE", id: item.id });
+  function deleteItem(id) {
+    newItemListDispatch({ type: "DELETE", id });
   }
 
   function deleteAllItem() {

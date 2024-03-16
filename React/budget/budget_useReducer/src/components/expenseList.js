@@ -6,7 +6,7 @@ import ExpenseItem from "./expenseItem";
 
 export default function ExpenseList({ itemList, deleteItem, deleteAllItem }) {
   return (
-    <div key={itemList.id}>
+    <div>
       <ul className="list">
         <ExpenseItem itemList={itemList} deleteItem={deleteItem} />
       </ul>
